@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="project">
+<head>
+    <meta charset="utf-8">
+    <title>Keith Stoneman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="preload" href="../design-min.css" as="style" onload="this.rel='stylesheet'">
+			<noscript><link rel="stylesheet" href="../design-min.css"></noscript>
+			<script>
+			/*! loadCSS: load a CSS file asynchronously. [c]2016 @scottjehl, Filament Group, Inc. Licensed MIT */
+			(function(w){
+				"use strict";
+				/* exported loadCSS */
+				var loadCSS = function( href, before, media ){
+					// Arguments explained:
+					// `href` [REQUIRED] is the URL for your CSS file.
+					// `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+						// By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+					// `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+					var doc = w.document;
+					var ss = doc.createElement( "link" );
+					var ref;
+					if( before ){
+						ref = before;
+					}
+					else {
+						var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+						ref = refs[ refs.length - 1];
+					}
+	
+					var sheets = doc.styleSheets;
+					ss.rel = "stylesheet";
+					ss.href = href;
+					// temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+					ss.media = "only x";
+	
+					// wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
+					function ready( cb ){
+						if( doc.body ){
+							return cb();
+						}
+						setTimeout(function(){
+							ready( cb );
+						});
+					}
+					// Inject link
+						// Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+						// Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+					ready( function(){
+						ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+					});
+					// A method (exposed on return object for external use) that mimics onload by polling until document.styleSheets until it includes the new sheet.
+					var onloadcssdefined = function( cb ){
+						var resolvedHref = ss.href;
+						var i = sheets.length;
+						while( i-- ){
+							if( sheets[ i ].href === resolvedHref ){
+								return cb();
+							}
+						}
+						setTimeout(function() {
+							onloadcssdefined( cb );
+						});
+					};
+	
+					function loadCB(){
+						if( ss.addEventListener ){
+							ss.removeEventListener( "load", loadCB );
+						}
+						ss.media = media || "all";
+					}
+	
+					// once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+					if( ss.addEventListener ){
+						ss.addEventListener( "load", loadCB);
+					}
+					ss.onloadcssdefined = onloadcssdefined;
+					onloadcssdefined( loadCB );
+					return ss;
+				};
+				// commonjs
+				if( typeof exports !== "undefined" ){
+					exports.loadCSS = loadCSS;
+				}
+				else {
+					w.loadCSS = loadCSS;
+				}
+			}( typeof global !== "undefined" ? global : this ));
+	
+	
+	
+	
+			/* CSS rel=preload polyfill (from src/cssrelpreload.js) */
+			/* CSS rel=preload polyfill. Depends on loadCSS function */
+			(function( w ){
+			  // rel=preload support test
+			  if( !w.loadCSS ){
+			    return;
+			  }
+			  var rp = loadCSS.relpreload = {};
+			  rp.support = function(){
+			    try {
+			      return w.document.createElement("link").relList.supports( "preload" );
+			    } catch (e) {}
+			  };
+	
+			  // loop preload links and fetch using loadCSS
+			  rp.poly = function(){
+			    var links = w.document.getElementsByTagName( "link" );
+			    for( var i = 0; i < links.length; i++ ){
+			      var link = links[ i ];
+			      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" ){
+			        w.loadCSS( link.href, link );
+			        link.rel = null;
+			      }
+			    }
+			  };
+	
+			  // if link[rel=preload] is not supported, we must fetch the CSS manually using loadCSS
+			  if( !rp.support() ){
+			    rp.poly();
+			    var run = w.setInterval( rp.poly, 300 );
+			    if( w.addEventListener ){
+			      w.addEventListener( "load", function(){
+			        w.clearInterval( run );
+			      } )
+			    }
+			  }
+			}( this ));
+	
+			</s<a class="email" href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#106;&#115;&#116;&#111;&#110;&#101;&#109;&#97;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;?subject=Job Opportunity'>&#69;&#109;&#97;&#105;&#108;</a>cript>	
+	<style type="text/css">
+		@font-face {
+		    font-family: 'montserratultra-light';
+		    src: url('../fonts/montserrat-ultralight-webfont.eot');
+		    src: url('../fonts/montserrat-ultralight-webfont.eot?#iefix') format('embedded-opentype'),
+		         url('../fonts/montserrat-ultralight-webfont.woff2') format('woff2'),
+		         url('../fonts/montserrat-ultralight-webfont.woff') format('woff'),
+		         url('../fonts/montserrat-ultralight-webfont.ttf') format('truetype'),
+		         url('../fonts/montserrat-ultralight-webfont.svg#montserratultra-light') format('svg');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		
+		@font-face {
+		    font-family: 'montserrat-bold';
+		    src: url('../fonts/montserrat-bold-webfont.eot');
+		    src: url('../fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+		         url('../fonts/montserrat-bold-webfont.woff2') format('woff2'),
+		         url('../fonts/montserrat-bold-webfont.woff') format('woff'),
+		         url('../fonts/montserrat-bold-webfont.ttf') format('truetype'),
+		         url('../fonts/montserrat-bold-webfont.svg#montserrat-bold') format('svg');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+		
+		html {
+		font-family: 'montserratultra-light',sans-serif;
+		-ms-text-size-adjust:100%;
+		-webkit-text-size-adjust:100%
+		}
+		body:before, body:after {
+		    content: "";
+		    position: fixed;
+		    background: #ffffff;
+		    left: 0;
+		    right: 0;
+		    height: 10px;
+		}
+		body:before {
+		    top: 0;
+		}
+		body:after {
+		    bottom: 0;
+		}
+		body {
+		font-family: 'montserratultra-light', helvetica, sans-serif;
+		font-size:18px;
+		line-height:1.6;
+		color:#ffffff;
+		background-image: url("img/background-noise.png");
+		background-color:#333333;
+		margin:0;
+		border-left: 10px solid #ffffff;
+		border-right: 10px solid #ffffff;
+		}
+		}header,nav{
+		display:block;
+		}
+		a {
+		background:transparent
+		}
+		img {
+		border:0;
+		}
+		* {
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+		}
+		:before,:after {
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+		}
+		html {
+		font-size:10px;
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
+		}
+		a {
+		color:#ffffff;
+		text-decoration:none;
+		}
+		img {
+		vertical-align:middle;
+		}
+		h2,h3{
+		font-family:inherit;
+		font-weight:200;
+		line-height:1.1;
+		color:#ffffff;
+		}
+		h2,h3{
+		margin-top:28px;
+		margin-bottom:14px;
+		}
+		h2{
+		font-size:48px;
+		}
+		h3{
+		font-size:31px;
+		}
+		.text-center {
+		text-align:center;
+		}
+		.container {
+		margin-right:auto;
+		margin-left:auto;
+		padding-left:15px;
+		padding-right:15px;
+		}
+		
+		@media (min-width:768px) {
+		.container {
+		width:750px
+		}
+		}
+		@media (min-width:992px) {
+		.container {
+		width:970px
+		}
+		}
+		@media (min-width:1200px) {
+		.container {
+		width:1170px
+		}
+		}
+		.row {
+		margin-left:-15px;
+		margin-right:-15px
+		}.container:before,.container:after,.row:before,.row:after{
+		content:" ";
+		display:table
+		}.container:after,.row:after{
+		clear:both
+		}
+		.center-block {
+		display:block;
+		margin-left:auto;
+		margin-right:auto;
+		}
+		body {
+		font-weight:300
+		}
+		h2,h3{
+		margin-top:0;
+		font-weight:200
+		}
+		.bracket{
+			font-family: 'montserrat-light', helvetica, sans-serif;
+			position: relative;
+			top: -.07em;
+		}
+		#header {
+		overflow:hidden;
+		padding:60px 0 20px;
+		}#header nav {
+		position:relative;
+		min-height:1px;
+		padding-left:15px;
+		padding-right:15px;
+		margin-bottom:20px;
+		text-align:center
+		}
+		#header h3 {
+		background: #3A73BA; 
+		width: 100px; 
+		padding: 25px 0 25px 0; 
+		color: #ffffff;
+		}
+		#header h2 a {
+		color: #ffffff; 
+		}
+		#header h2 a {
+		color:#ffffff;
+		}
+		#header nav a {
+		display:inline-block;
+		margin:0 10px;
+		font-size: 20px;
+		}
+		@media (min-width:768px) {
+		#header nav {
+		padding-top:5px;
+		padding-bottom:0;
+		text-align:center;
+		}
+		#header nav a:last-child {
+		margin-right:0
+		}
+		}
+		#content {
+		padding-bottom:100px
+		}
+		#page {
+		min-height:100%;
+		margin-bottom:-50px
+		}
+		html.projects #header {
+		border-bottom:none;
+		}
+		html.projects #content .project {
+		position:relative;
+		min-height:1px;
+		padding-left:15px;
+		padding-right:15px;
+		margin-bottom:30px
+		}
+		@media (min-width:768px) {
+		html.projects #content .project {
+		float:left;
+		width:50%
+		}
+		}
+		@media (min-width:992px) {
+		html.projects #content .project {
+		float:left;
+		width:33.33333333%
+		}
+		}
+		html.projects #content .project a {
+		display:block;
+		}
+		html.projects #content .project a span {
+		display:none
+		}
+		html.projects #content .project a img {
+		display:block;
+		width:100% \9;
+		max-width:100%;
+		height:auto;
+		margin:0 auto;
+		background-color: #333333;
+		}
+	</style>    </head>
+    <body>
+
+       <div id="page">
+           <header id="header">
+               <div class="container">
+                   <div class="row">
+                       <a class="text-center" style="color: #ffffff; font-size: 34px; font-family: 'montserrat-bold', sans-serif;" href="../index.html"><h3 class="center-block text-center"><span class="bracket">[</span>KS<span class="bracket">]</span></h3></a>
+                   </div>
+                   <div class="row">
+                       <h2 class="text-center"><a class="text-center" href="../index.html">Keith Stoneman</a></h2>
+                   </div>
+                   <div class="row">
+                       <nav>
+                           <a class="email" href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#106;&#115;&#116;&#111;&#110;&#101;&#109;&#97;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;'>&#69;&#109;&#97;&#105;&#108;</a> 
+                           <a href="https://www.linkedin.com/in/kjstoneman" target="_blank" class="linkedin">LinkedIn</a> 
+                           <a href="docs/keith-stoneman-resume.pdf" class="resume">Resume</a>
+                       </nav>
+                   </div>
+               </div>
+           </header>
+            <div id="content">
+                <div class="container">
+                    <div class="row">
+                        <!--<div class="row">-->
+    <div class="pagination">
+        <ul>
+            <li class="previous">
+                
+                <a href="bible-gateway-premium.html" title="Bible Gateway Premium"><span class="icon-arrow-left"></span></a>
+                
+            </li>
+            <li class="next">
+                
+                <span style="color: #777777;" class="icon-arrow-right"></span>
+                
+            </li>
+        </ul>
+    </div>
+    <div class="project-header">
+        <h2>Accident Fund Annual Report</h2>
+        <h5>Art Direction, Design</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+    <img src="../img/projects/annual-report/01.jpg" alt="Image 1" class="border">
+</div>
+<div class="row">
+    <div class="col-sm-12">
+    <img src="../img/projects/annual-report/02.jpg" alt="Image 1" class="border">
+</div>
+<!--</div>-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
