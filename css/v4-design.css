@@ -18,6 +18,18 @@
   box-sizing: border-box;
 }
 
+body:after {
+    bottom: 0;
+}
+
+body:before, body:after {
+    content: "";
+    position: fixed;
+    background: #fff;
+    left: 0;
+    right: 0;
+    height: 10px;
+
 body::before,
 body::after {
   content: "";
