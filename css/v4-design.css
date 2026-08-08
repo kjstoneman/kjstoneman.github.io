@@ -18,10 +18,22 @@
   box-sizing: border-box;
 }
 
-body::before,
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: #fff;
+  pointer-events: none;
+  z-index: 9999;
+}
+
 body::after {
   content: "";
   position: fixed;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 10px;
@@ -190,6 +202,11 @@ p.description {
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    line-height: 48px;
+    padding-top: 20px;
   }
 }
 
