@@ -1,0 +1,232 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-light-webfont.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-bold-webfont.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+}
+
+html::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid #fff;
+  pointer-events: none;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+
+  color: white;
+  background: #333 url("../img/background-noise.png");
+}
+
+.no-underline a {
+  text-decoration: none;
+}
+
+.bracket {
+  font-weight: 400;
+  position: relative;
+  top: -0.07em;
+}
+
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin: 50px auto 0 auto;
+  padding: 0 20px;
+}
+
+#header {
+  padding: 10px 0 10px;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.logo h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 110px;
+  height: 110px;
+
+  border-radius: 10px;
+  margin: 0 auto 10px;
+  padding: 0;
+
+  background: #3a73ba;
+
+  color: white;
+  font-size: 42px;
+  font-weight: 800;
+}
+
+h1 a,
+h1 a:visited {
+  color: white;
+  font-size: 48px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.075em;
+}
+
+h1 {
+  margin: 5px 0;
+}
+
+nav a {
+  display: inline-block;
+  margin: 0 10px;
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* portfolio thumbnails index */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* project pages */
+.project-content {
+  display: grid;
+  gap: 30px;
+}
+
+.columns-1 {
+  grid-template-columns: 1fr;
+}
+
+.columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.img-container {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 10px solid white;
+  filter: grayscale(100%);
+  transition: 0.3s ease;
+}
+
+.border {
+  border: 7px solid #fff;
+  bor
+}
+
+.projects-grid a:hover img {
+  filter: none;
+}
+
+.project-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 3rem;
+}
+
+.project-header {
+  margin-bottom: 3rem;
+}
+
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.project-title h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.pagination {
+  display: flex;
+  gap: 0;
+}
+
+.pagination a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #333;
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 5px 10px 5px 10px;
+  margin: 5px;
+}
+
+.pagination a:hover {
+  background: #666;
+  color: #fff;
+}
+
+p.description {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  max-width: 750px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .columns-2,
+  .columns-3 {
+     grid-template-columns: 1fr;  
+  }
+
+  h1 {
+    line-height: 48px;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
